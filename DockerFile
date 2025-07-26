@@ -1,0 +1,12 @@
+# Dockerfile for Round 1B: Persona-Based PDF Section Analyzer
+
+FROM --platform=linux/amd64 python:3.10-slim
+
+WORKDIR /app
+
+COPY round1b_analyzer.py .
+COPY persona.json .
+
+RUN pip install pymupdf
+
+ENTRYPOINT ["python", "round1b_analyzer.py"]
